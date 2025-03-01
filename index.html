@@ -14,12 +14,21 @@
       * {
         font-family: 'Poppins', sans-serif;
       }
+      .bg-custom-gradient {
+        background: linear-gradient(
+          130.7deg,
+          rgb(55, 82, 253) 0.419%,
+          rgb(108, 127, 250) 52.66%,
+          rgb(155, 168, 248) 99.733%
+        );
+      }
     </style>
   </head>
   <body class="w-full h-full bg-[#f4f7ff]">
-    <div class="container mx-auto px-8">
+    <div class="container mx-auto px-8 flex flex-col gap-y-3">
+      <!-- NavBar Section -->
       <div
-        class="h-24 bg-white p-4 mt-5 rounded-2xl shadow-sm flex items-center justify-between px-4"
+        class="h-24 bg-white p-4 mt-3 rounded-2xl shadow-sm flex items-center justify-between px-4"
       >
         <!-- Logo -->
         <div id="logo">
@@ -46,6 +55,218 @@
             </button>
           </div>
         </div>
+      </div>
+      <!-- Task Input & List -->
+      <div class="flex justify-between">
+        <div
+          class="w-[77%] h-[calc(100vh-130px)] bg-white rounded-2xl shadow-sm p-3"
+        >
+          <div
+            class="grid grid-cols-4 gap-4 border-b-2 border-dashed border-[#3752fd33] pb-5"
+          >
+            <div
+              class="bg-[#f4f7ff] h-32 rounded-lg shadow-sm flex justify-center items-center gap-x-9"
+            >
+              <div
+                class="w-14 h-14 flex justify-center items-center rounded-full bg-white ring-1 ring-blue-600"
+              >
+                <i class="ri-checkbox-circle-fill text-blue-600 text-3xl"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-base text-gray-500">Task Assigned</span>
+                <h1 class="text-3xl font-semibold">05</h1>
+              </div>
+            </div>
+            <div
+              onclick="chengePage()"
+              class="col-span-2 h-32 rounded-lg flex items-center justify-start pl-10 gap-x-5 bg-custom-gradient shadow-sm cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 flex items-center justify-center border-[1.5px] border-dashed border-yellow-400"
+              >
+                <img src="./assets/board.png" class="w-16 h-auto" alt="" />
+              </div>
+              <h1 class="text-3xl font-medium text-white">
+                Discover Something <br />
+                New Today!
+              </h1>
+            </div>
+            <div
+              class="bg-[#f4f7ff] h-32 rounded-lg shadow-sm flex justify-center items-center gap-x-9"
+            >
+              <div
+                class="w-14 h-14 flex justify-center items-center rounded-full bg-white ring-1 ring-blue-600"
+              >
+                <i class="ri-calendar-fill text-blue-600 text-2xl"></i>
+              </div>
+              <div class="flex flex-col text-xl">
+                <span id="day">Wed,</span>
+                <span id="fullDate" class="font-semibold">Jul 28 2025</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-5 pt-5">
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+            <div
+              class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5"
+            >
+              <span class="px-3 py-2 bg-white rounded-lg">ShopEase</span>
+              <h1 class="text-2xl font-semibold text-gray-900 mt-3">
+                Fix Mobile Button Issue
+              </h1>
+              <div class="bg-white p-3 mt-2 rounded-md">
+                <p class="text-gray-600">
+                  Debug using Chrome DevTools, <br />
+                  check for overlapping elements, and ensure onClick works
+                  properly.
+                </p>
+              </div>
+              <div class="flex gap-x-20 items-center mt-4">
+                <div class="flex flex-col">
+                  <span class="text-gray-500 text-sm">Deadline</span>
+                  <span class="text-gray-900 font-semibold">21 March 2025</span>
+                </div>
+                <button
+                  class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-[22%] h-[calc(100vh-130px)] bg-white rounded-2xl shadow-sm"
+        ></div>
       </div>
     </div>
     <script src="./script.js"></script>
