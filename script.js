@@ -1,21 +1,12 @@
 // Theme section
 let body = document.querySelector('body');
-const themeColors = [
-  'aliceblue',
-  'antiquewhite',
-  'azure',
-  'bisque',
-  'ghostwhite',
-  'lavender',
-  'honeydew',
-  'lightcyan',
-  'paleturquoise',
-  'palegreen',
-];
-
 function themeButton() {
-  let chosenColor = themeColors[Math.floor(Math.random() * themeColors.length)];
-  body.style.backgroundColor = chosenColor;
+  let color = '';
+  for (let i = 0; i < 6; i++) {
+    const randomDigit = Math.floor(Math.random() * 16);
+    color += randomDigit.toString(16);
+  }
+  body.style.backgroundColor = '#' + color;
 }
 
 function chengePage() {
@@ -83,10 +74,10 @@ allButtons.forEach(function (btn) {
     notificationBox.innerHTML = taskDatas
       .map(
         (task) => `
-        <div class="w-full bg-[#f4f7ff] p-3 rounded-lg">
+        <div class="w-full bg-[#f4f7ff] p-3 rounded-lg shadow-sm">
           <h1 class="text-base font-normal">
             ${'You have Complete The Task is' + task.title} at
-            <span>${task.date}</span>
+            <span class="font-medium">${task.date}</span>
           </h1>
         </div>
       `
