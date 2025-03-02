@@ -113,3 +113,7 @@ function clearHistory() {
   taskCount = allTasks.length;
   totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
 }
+
+function backToDeskBord() {
+  window.location = '/';
+}
