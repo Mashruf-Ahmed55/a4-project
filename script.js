@@ -76,7 +76,8 @@ allButtons.forEach(function (btn) {
         (task) => `
         <div class="w-full bg-[#f4f7ff] p-3 rounded-lg shadow-sm">
           <h1 class="text-base font-normal">
-            ${'You have Complete The Task is' + task.title} at
+          You have Complete The Task is
+            ${task.title} at
             <span class="font-medium">${task.date}</span>
           </h1>
         </div>
@@ -94,15 +95,16 @@ allButtons.forEach(function (btn) {
 function clearHistory() {
   taskDatas.length = 0;
   notificationBox.innerHTML = '';
-  allButtons.forEach((btn) => {
-    btn.removeAttribute('disabled');
-    btn.classList.remove('bg-blue-200', 'cursor-not-allowed');
-    btn.classList.add('bg-blue-600');
-  });
-  completeTasksCount = 24;
-  compleTask.innerHTML = completeTasksCount;
-  taskCount = allTasks.length;
-  totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
+  // Optionally
+  // allButtons.forEach((btn) => {
+  //   btn.removeAttribute('disabled');
+  //   btn.classList.remove('bg-blue-200', 'cursor-not-allowed');
+  //   btn.classList.add('bg-blue-600');
+  // });
+  // completeTasksCount = 24;
+  // compleTask.innerHTML = completeTasksCount;
+  // taskCount = allTasks.length;
+  // totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
 }
 
 function backToDeskBord() {
