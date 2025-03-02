@@ -47,74 +47,69 @@ fullDate.innerHTML = `${months[date.getMonth()]} ${
 } ${date.getFullYear()}`;
 
 //
-let cardObj = [
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-  {
-    smTitle: 'ShopEase',
-    title: 'Fix Mobile Button Issue',
-    description:
-      'Debug using Chrome DevTools check for overlapping elements, and ensure onClick works',
-    deadline: '21 March 2025',
-  },
-];
-let cardContainer = document.querySelector('#cardContainer');
-cardContainer.innerHTML = cardObj.map((card) => {
-  return `<div
-  class="h-72 bg-[#f4f7ff] rounded-lg flex flex-col items-start shadow-sm px-6 py-5 w-[360px] mx-[3px] my-[6px]"
->
-  <span class="px-3 py-2 bg-white rounded-lg">${card.smTitle}</span>
-  <h1 class="text-2xl font-semibold text-gray-900 mt-3">
-    ${card.title}
-  </h1>
-  <div class="bg-white p-3 mt-2 rounded-md">
-    <p class="text-gray-600">
-      ${card.description}
-    </p>
-  </div>
-  <div class="flex gap-x-20 items-center mt-4">
-    <div class="flex flex-col">
-      <span class="text-gray-500 text-sm">Deadline</span>
-      <span class="text-gray-900 font-semibold">${card.deadline}</span>
-    </div>
-    <button
-      class="px-3 py-2 rounded-xl bg-blue-600 text-white font-medium"
-    >
-      Completed
-    </button>
-  </div>
-</div>`;
+
+let allButtons = document.querySelectorAll('.isCompleteBtn');
+let allTasks = document.querySelectorAll('.taskCard');
+let compleTask = document.querySelector('#completedTask');
+let totalTasks = document.querySelector('#taskCount');
+let notificationBox = document.querySelector('#notificationBox');
+
+// Initial tasks count
+let taskCount = allTasks.length;
+totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
+
+// Completed tasks count
+let completeTasksCount = 24;
+compleTask.innerHTML = completeTasksCount;
+
+let taskDatas = [];
+
+allButtons.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    alert('Board updated successfully');
+    this.setAttribute('disabled', true);
+    this.classList.add('bg-blue-200', 'cursor-not-allowed');
+    this.classList.remove('bg-blue-600');
+    let getTitle = this.closest('.taskCard').querySelector('.title').innerText;
+    completeTasksCount++;
+    compleTask.innerHTML = completeTasksCount;
+    taskCount = Math.max(0, taskCount - 1);
+    totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
+    let taskData = {
+      title: getTitle,
+      date: new Date().toLocaleTimeString(),
+    };
+    taskDatas.push(taskData);
+    notificationBox.innerHTML = taskDatas
+      .map(
+        (task) => `
+        <div class="w-full bg-[#f4f7ff] p-3 rounded-lg">
+          <h1 class="text-base font-normal">
+            ${'You have Complete The Task is' + task.title} at
+            <span>${task.date}</span>
+          </h1>
+        </div>
+      `
+      )
+      .join('');
+
+    let allDisabled = [...allButtons].every((btn) => btn.disabled);
+    if (allDisabled) {
+      alert('All tasks are completed!');
+    }
+  });
 });
+
+function clearHistory() {
+  taskDatas.length = 0;
+  notificationBox.innerHTML = '';
+  allButtons.forEach((btn) => {
+    btn.removeAttribute('disabled');
+    btn.classList.remove('bg-blue-200', 'cursor-not-allowed');
+    btn.classList.add('bg-blue-600');
+  });
+  completeTasksCount = 24;
+  compleTask.innerHTML = completeTasksCount;
+  taskCount = allTasks.length;
+  totalTasks.innerHTML = taskCount < 10 ? `0${taskCount}` : taskCount;
+}
